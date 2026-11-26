@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4efe6">
+  <meta name="description" content="ELVO — curated thriftwear. We thrift, you wear.">
+  <title>ELVO — We thrift, you wear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--paper:#f4efe6;--ink:#171713;--muted:#77746d;--line:#d9d1c5;--white:#fffdf8}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .topbar{padding:10px 16px;text-align:center;background:#191916;color:#f8f4ec;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+    header{max-width:1180px;margin:auto;padding:22px 5.5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .brand{font-size:38px;font-weight:700;font-style:italic;letter-spacing:-.07em;line-height:.9}
+    .tagline{font-size:9px;letter-spacing:.28em;font-weight:700;margin-top:8px}
+    nav{display:flex;gap:28px;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+    .hero{max-width:1180px;margin:auto;padding:76px 5.5% 70px;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+    .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+    h1{font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:clamp(48px,7vw,88px);line-height:.98;letter-spacing:-.045em;margin:20px 0}
+    .hero p{max-width:440px;color:#666159;line-height:1.8;font-size:14px}
+    .cta{display:inline-flex;margin-top:22px;padding:14px 23px;border:1px solid var(--ink);border-radius:2px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;transition:.2s}
+    .cta:hover{background:var(--ink);color:var(--paper)}
+    .hero-art{min-height:330px;background:#e9e1d5;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .hero-art:before{content:"ELVO";font-size:clamp(90px,16vw,190px);font-weight:700;font-style:italic;letter-spacing:-.09em;color:rgba(25,25,20,.08)}
+    .hero-note{position:absolute;bottom:20px;right:22px;font-family:"Playfair Display",serif;font-size:20px}
+    .section{max-width:1180px;margin:auto;padding:30px 5.5% 80px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px;gap:20px}
+    h2{font-family:"Playfair Display",Georgia,serif;font-size:42px;font-weight:500;margin:8px 0 0;letter-spacing:-.03em}
+    .section-head p{font-size:12px;color:var(--muted);max-width:260px;line-height:1.6}
+    .products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 18px}
+    .product{min-width:0}
+    .photo{position:relative;background:#e8e1d6;aspect-ratio:4/5;overflow:hidden}
+    .photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+    .product:hover .photo img{transform:scale(1.025)}
+    .status{position:absolute;top:12px;left:12px;background:var(--ink);color:#fff;padding:8px 10px;font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+    .status.sold{background:#77746d}
+    .details{padding:14px 2px 0}
+    .name{font-family:"Playfair Display",Georgia,serif;font-size:20px}
+    .meta{display:flex;justify-content:space-between;align-items:center;margin-top:9px;font-size:13px}
+    .price{font-weight:700}
+    .order{display:block;text-align:center;border:1px solid var(--ink);padding:12px;margin-top:14px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .order:hover{background:var(--ink);color:var(--paper)}
+    .order.disabled{border-color:#c9c1b6;color:#9b958b;pointer-events:none}
+    .about{background:#1a1a17;color:#f5f0e8;padding:65px 5.5%}
+    .about-inner{max-width:1050px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .about h2{font-size:46px}
+    .about p{color:#c6c0b6;font-size:14px;line-height:1.9}
+    .about .eyebrow{color:#b7b0a5}
+    .promise{font-family:"Playfair Display",serif;font-size:25px;line-height:1.5;border-left:1px solid #777;padding-left:28px}
+    .contact{max-width:1180px;margin:auto;padding:65px 5.5%;text-align:center}
+    .contact h2{font-size:46px}
+    .contact p{color:var(--muted);font-size:13px;line-height:1.8}
+    footer{border-top:1px solid var(--line);padding:22px 5.5%;display:flex;justify-content:space-between;gap:16px;max-width:1180px;margin:auto;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    @media(max-width:760px){header{padding:18px 5%;}.brand{font-size:32px}nav{gap:13px;font-size:10px}.hero{grid-template-columns:1fr;padding-top:52px;gap:28px}.hero-art{min-height:230px}.section{padding-bottom:58px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}.name{font-size:17px}.about-inner{grid-template-columns:1fr;gap:26px}.about{padding:52px 6%}h2{font-size:36px}.section-head{align-items:start;flex-direction:column}.section-head p{margin:0}footer{flex-direction:column}}
+    @media(max-width:390px){nav{gap:9px;font-size:9px}.products{grid-template-columns:1fr}.photo{aspect-ratio:4/4.5}}
+  </style>
+</head>
+<body>
+  <div class="topbar">Curated finds · Limited pieces · Order directly on WhatsApp</div>
+  <header>
+    <a href="#" aria-label="ELVO home">
+      <div class="brand">ELVO</div>
+      <div class="tagline">WE THRIFT, YOU WEAR</div>
+    </a>
+    <nav><a href="#collection">Collection</a><a href="#about">Our story</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">A better way to wear</div>
+        <h1>Good style.<br>Smarter finds.</h1>
+        <p>Thoughtfully picked thriftwear for everyday style. Discover one-of-a-kind pieces without paying full retail prices.</p>
+        <a class="cta" href="#collection">Explore the collection&nbsp; ↘</a>
+      </div>
+      <div class="hero-art"><div class="hero-note">WE THRIFT, YOU WEAR.</div></div>
+    </section>
+
+    <section class="section" id="collection">
+      <div class="section-head">
+        <div><div class="eyebrow">The current drop</div><h2>Shop the collection</h2></div>
+        <p>Limited pieces. Once a piece is gone, it’s gone. Tap an available item to order.</p>
+      </div>
+      <div class="products" id="products"></div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-inner">
+        <div><div class="eyebrow">A little about ELVO</div><h2>Wear better.<br>Shop smarter.</h2></div>
+        <div>
+          <p>ELVO is a small thriftwear project built around finding wearable pieces, giving them another chapter, and making personal style more accessible.</p>
+          <div class="promise">“We thrift, you wear.”</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="eyebrow">Need a detail?</div>
+      <h2>Let’s talk.</h2>
+      <p>Ask us about measurements, condition, delivery, or availability before placing your order.</p>
+      <a class="cta" href="https://wa.me/923711893011?text=Hi%20ELVO%2C%20I%20have%20a%20question%20about%20your%20collection.">Chat on WhatsApp&nbsp; ↗</a>
+    </section>
+  </main>
+
+  <footer><span>© <span id="year"></span> ELVO</span><span>WE THRIFT, YOU WEAR</span><span>Made with care</span></footer>
+
+  <script>
+    const products = [
+      {name:"Navy Classic Polo",price:449,image:"navy-classic-polo.png",available:true},
+      {name:"Cream Knit Polo",price:849,image:"cream-knit-polo.png",available:true},
+      {name:"Navy Utility Sweatshirt",price:849,image:"navy-utility-sweatshirt.png",available:true},
+      {name:"Black Zip Pullover",price:449,image:"black-zip-pullover.png",available:false},
+      {name:"Burgundy Contrast Polo",price:449,image:"burgundy-contrast-polo.png",available:true},
+      {name:"Graphic Hoodie",price:799,image:"graphic-hoodie.png",available:false},
+      {name:"Navy Checked-Collar Sweater",price:899,image:"navy-checked-collar-sweater.png",available:true}
+    ];
+    const root = document.getElementById("products");
+    products.forEach((p, i) => {
+      const message = encodeURIComponent(`Hi ELVO! I want to order: ${p.name} (Rs. ${p.price}). Please share the details.`);
+      const card = document.createElement("article");
+      card.className = "product";
+      card.innerHTML = `
+        <div class="photo">
+          <img src="assets/${p.image}" alt="${p.name}" loading="${i < 3 ? "eager" : "lazy"}">
+          <span class="status ${p.available ? "" : "sold"}">${p.available ? "Available" : "Sold out"}</span>
+        </div>
+        <div class="details">
+          <div class="name">${p.name}</div>
+          <div class="meta"><span>ELVO / THRIFTWEAR</span><span class="price">Rs. ${p.price.toLocaleString("en-PK")}</span></div>
+          ${p.available
+            ? `<a class="order" href="https://wa.me/923711893011?text=${message}" target="_blank" rel="noopener">Order on WhatsApp ↗</a>`
+            : `<span class="order disabled">Currently sold out</span>`}
+        </div>`;
+      root.appendChild(card);
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
